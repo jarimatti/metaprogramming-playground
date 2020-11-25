@@ -18,6 +18,6 @@ defmodule Metaprogramming.MessageClient do
 
   @spec stuff :: String.t()
   def stuff do
-    handle(%MessageTest.StringMessage{to: "foobar"})
+    handle(%MessageTest.StringMessage{from: "hello", message_id: "id-1", to: "foobar"})
   end
 end

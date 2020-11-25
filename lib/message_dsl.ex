@@ -1,10 +1,11 @@
 defmodule Metaprogramming.MessageDSL do
+
   @doc false
   defmacro __using__(_opts) do
     quote do
       import Metaprogramming.MessageDSL
 
-      Module.register_attribute(__MODULE__, :message_types, accumulate: true, persists: true)
+      Module.register_attribute(__MODULE__, :message_types, accumulate: true, persist: true)
 
       @before_compile Metaprogramming.MessageDSL
     end
@@ -26,12 +27,6 @@ defmodule Metaprogramming.MessageDSL do
       end
 
       @message_types unquote(module)
-    end
-  end
-
-  defmacro defmessages(do: {:__block__, _, _} = block) do
-    quote do
-      unquote(block)
     end
   end
 
