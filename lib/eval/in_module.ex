@@ -1,7 +1,13 @@
 defmodule Metaprogramming.Eval.InModule do
+  @doc """
+  Experiment with `Module.eval_quoted/4`.
+  """
   IO.puts("Hi there, this is from module body. I'm evaluated at compile time.")
 
   defmodule Stuff do
+    @moduledoc """
+    Defines the function to generate quoted code suitable for injecting into a module.
+    """
     @spec generate_foobar(any) ::
             {:__block__, [], [{:@, [...], [...]} | {:def, [...], [...]}, ...]}
     def generate_foobar(arg) do
