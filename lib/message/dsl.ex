@@ -1,18 +1,28 @@
-defmodule Metaprogramming.MessageDSL do
+defmodule Metaprogramming.Message.DSL do
+  @moduledoc """
+  DSL for defining messages with common fields.
+
+  Uses macros to do the job.
+
+  This is inspired by TypedStruct and Algae.
+  """
 
   @doc false
   defmacro __using__(_opts) do
     quote do
-      import Metaprogramming.MessageDSL
+      import Metaprogramming.Message.DSL
 
       Module.register_attribute(__MODULE__, :message_types, accumulate: true, persist: true)
 
-      @before_compile Metaprogramming.MessageDSL
+      @before_compile Metaprogramming.Message.DSL
     end
   end
 
   @doc """
   Define a new message with given name and payload type.
+
+  Each message is defined in their own module under the calling module.
+  The calling module will get a type `t` that contains all messages.
   """
   defmacro defmessage(module, value) do
     quote do

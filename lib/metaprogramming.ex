@@ -1,18 +1,7 @@
 defmodule Metaprogramming do
   @moduledoc """
-  Documentation for `Metaprogramming`.
+  A playground containing various metaprogramming experiments.
+
+  None of the modules is production ready.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Metaprogramming.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

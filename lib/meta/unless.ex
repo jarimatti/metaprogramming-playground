@@ -1,4 +1,6 @@
 defmodule Metaprogramming.Meta.Unless do
+  @moduledoc false
+
   def fun_unless(clause, do: expression) do
     if(!clause, do: expression)
   end

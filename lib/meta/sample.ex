@@ -1,4 +1,5 @@
 defmodule Metaprogramming.Meta.Sample do
+  @moduledoc false
 
   defmacro initialize_to_char_count(variables) do
     Enum.map variables, fn(name) ->

@@ -1,4 +1,6 @@
 defmodule Metaprogramming.Meta.Hygiene do
+  @moduledoc false
+
   defmacro no_interference do
     quote do: a = 1
   end
@@ -9,6 +11,8 @@ defmodule Metaprogramming.Meta.Hygiene do
 end
 
 defmodule Metaprogramming.Meta.HygieneTest do
+  @moduledoc false
+
   def go do
     require Metaprogramming.Meta.Hygiene
     alias Metaprogramming.Meta.Hygiene
