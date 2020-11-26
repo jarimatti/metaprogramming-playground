@@ -30,10 +30,10 @@ defmodule Metaprogramming.Message.DSL do
         defstruct [:message_id, :from, :to]
 
         @type t() :: %__MODULE__{
-          message_id: String.t(),
-          from: unquote(value),
-          to: unquote(value)
-        }
+                message_id: String.t(),
+                from: unquote(value),
+                to: unquote(value)
+              }
       end
 
       @message_types unquote(module)
@@ -65,11 +65,11 @@ defmodule Metaprogramming.Message.DSL do
       module
       |> Module.split()
       |> Enum.map(&String.to_existing_atom/1)
+
     {{:., [], [{:__aliases__, [alias: false], split}, :t]}, [], []}
   end
 
   def or_type(elem, acc) do
     {:|, [], [elem, acc]}
   end
-
 end
